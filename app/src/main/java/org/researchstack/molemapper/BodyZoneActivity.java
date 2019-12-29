@@ -6,13 +6,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v4.view.animation.FastOutLinearInInterpolator;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
+
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -25,13 +26,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.researchstack.backbone.StorageAccess;
-import org.researchstack.backbone.result.TaskResult;
-import org.researchstack.backbone.step.InstructionStep;
-import org.researchstack.backbone.task.OrderedTask;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import org.researchstack.backbone.ui.ViewTaskActivity;
-import org.researchstack.backbone.utils.LogExt;
 import org.researchstack.backbone.utils.ObservableUtils;
+import org.researchstack.feature.storage.StorageAccess;
+import org.researchstack.foundation.components.common.task.OrderedTask;
+import org.researchstack.foundation.components.survey.step.InstructionStep;
+import org.researchstack.foundation.components.utils.LogExt;
+import org.researchstack.foundation.core.models.result.TaskResult;
 import org.researchstack.molemapper.models.Measurement;
 import org.researchstack.molemapper.models.Mole;
 import org.researchstack.molemapper.models.Zone;

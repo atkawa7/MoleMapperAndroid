@@ -5,9 +5,9 @@ import android.util.Pair;
 
 import net.sqlcipher.database.SQLiteDatabase;
 
-import org.researchstack.backbone.StorageAccess;
-import org.researchstack.backbone.utils.LogExt;
-import org.researchstack.backbone.storage.database.sqlite.UpdatablePassphraseProvider;
+import org.researchstack.feature.storage.StorageAccess;
+import org.researchstack.feature.storage.database.sqlite.UpdatablePassphraseProvider;
+import org.researchstack.foundation.components.utils.LogExt;
 import org.researchstack.molemapper.bridge.BridgeEncryptedDatabase;
 import org.researchstack.molemapper.models.Measurement;
 import org.researchstack.molemapper.models.Mole;
@@ -35,6 +35,7 @@ public class Database extends BridgeEncryptedDatabase
 {
     public static final String DB_NAME    = "appdb";
     public static final int    DB_VERSION = 1;
+
 
     public Database(Context context, UpdatablePassphraseProvider passphraseProvider)
     {

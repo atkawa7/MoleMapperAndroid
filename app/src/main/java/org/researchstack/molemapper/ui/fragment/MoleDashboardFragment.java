@@ -5,12 +5,14 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatTextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.fragment.app.Fragment;
+
 import android.text.Html;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -29,12 +31,12 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.google.android.gms.location.LocationRequest;
 import com.jakewharton.rxbinding.view.RxView;
 
-import org.researchstack.backbone.StorageAccess;
-import org.researchstack.backbone.storage.file.StorageAccessListener;
-import org.researchstack.backbone.ui.graph.LineChartCard;
-import org.researchstack.backbone.ui.graph.ProgressChartCard;
-import org.researchstack.backbone.utils.LogExt;
 import org.researchstack.backbone.utils.ObservableUtils;
+import org.researchstack.feature.chart.ui.LineChartCard;
+import org.researchstack.feature.chart.ui.ProgressChartCard;
+import org.researchstack.feature.storage.StorageAccess;
+import org.researchstack.feature.storage.file.StorageAccessListener;
+import org.researchstack.foundation.components.utils.LogExt;
 import org.researchstack.molemapper.BodyMapActivity;
 import org.researchstack.molemapper.Database;
 import org.researchstack.molemapper.R;
@@ -53,9 +55,9 @@ import java.util.List;
 import java.util.Set;
 
 import pl.charmas.android.reactivelocation.ReactiveLocationProvider;
-import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
-import retrofit2.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import rx.Observable;
@@ -74,7 +76,7 @@ public class MoleDashboardFragment extends Fragment implements StorageAccessList
     private View              emptyView;
     private ProgressChartCard progressCard;
     private View              generalCard;
-    private LineChartCard     lineCard;
+    private LineChartCard lineCard;
     private View              permissionCard;
     private Subscription      locationSub;
 

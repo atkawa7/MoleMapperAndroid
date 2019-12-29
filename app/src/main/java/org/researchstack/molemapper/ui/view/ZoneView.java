@@ -5,14 +5,16 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
-import android.support.v4.content.ContextCompat;
+
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 
-import org.researchstack.backbone.utils.LogExt;
+import org.researchstack.foundation.components.utils.LogExt;
 import org.researchstack.molemapper.R;
 import org.researchstack.molemapper.models.Mole;
 

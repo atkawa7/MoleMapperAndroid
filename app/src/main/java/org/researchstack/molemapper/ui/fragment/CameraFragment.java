@@ -32,10 +32,10 @@ public class CameraFragment extends Fragment
         {
             return new LollipopCameraFragment();
         }
-        else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
-        {
-            return new JellyBeanCameraFragment();
-        }
+//        else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+//        {
+//            return new JellyBeanCameraFragment();
+//        }
         else
         {
             throw new RuntimeException("API v." + Build.VERSION.SDK_INT + " not supported");

@@ -43,10 +43,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.researchstack.backbone.StorageAccess;
-import org.researchstack.backbone.utils.LogExt;
 import org.researchstack.backbone.utils.ObservableUtils;
+import org.researchstack.feature.storage.StorageAccess;
+import org.researchstack.foundation.components.utils.LogExt;
 import org.researchstack.molemapper.PhotoCaptureActivity;
 import org.researchstack.molemapper.R;
 import org.researchstack.molemapper.ui.StatusBarUtils;
@@ -305,8 +304,8 @@ public class JellyBeanCameraFragment extends CameraFragment
         if(qOpened == true)
         {
             mPreview = new CameraPreview(getActivity().getBaseContext(), mCamera, view);
-            FrameLayout preview = (FrameLayout) view.findViewById(R.id.camera_preview);
-            preview.addView(mPreview);
+//            FrameLayout preview = (FrameLayout) view.findViewById(R.id.camera_preview);
+//            preview.addView(mPreview);
             mPreview.startCameraPreview();
         }
         return qOpened;

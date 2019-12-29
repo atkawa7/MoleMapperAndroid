@@ -1,1 +1,17 @@
+settings.createProjectDescriptor( settings.rootProject, 'skin',  file('./researchstack/skin'))
+settings.createProjectDescriptor( settings.rootProject, 'authentication',  file('./researchstack/authentication'))
+settings.createProjectDescriptor( settings.rootProject, 'consent',  file('./researchstack/consent'))
+settings.createProjectDescriptor( settings.rootProject, 'storage',  file('./researchstack/storage'))
+settings.createProjectDescriptor( settings.rootProject, 'backbone',  file('./researchstack/backbone'))
+settings.createProjectDescriptor( settings.rootProject, 'foundation', file('./researchstack/foundation'))
+settings.createProjectDescriptor( settings.rootProject, 'chart', file('./researchstack/chart'))
+settings.createProjectDescriptor( settings.rootProject, 'ssimageview', file('./ssimageview/library'))
+
+
 include ':app'
+include ':skin'
+include ':consent'
+include ':foundation'
+include ':ssimageview'
+include ':authentication'
+include ':chart'

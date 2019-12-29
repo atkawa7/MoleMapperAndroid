@@ -1,6 +1,6 @@
 package org.researchstack.molemapper.bridge;
-import org.researchstack.backbone.result.StepResult;
-import org.researchstack.backbone.result.TaskResult;
+import org.researchstack.foundation.core.models.result.StepResult;
+import org.researchstack.foundation.core.models.result.TaskResult;
 import org.researchstack.molemapper.task.MoleMapperInitialTask;
 
 import java.text.SimpleDateFormat;

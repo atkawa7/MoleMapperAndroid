@@ -1,7 +1,8 @@
 package org.researchstack.molemapper.bridge.body;
-import org.researchstack.backbone.answerformat.AnswerFormat;
-import org.researchstack.backbone.result.StepResult;
-import org.researchstack.backbone.utils.FormatHelper;
+
+import org.researchstack.foundation.components.survey.answerformat.AnswerFormat;
+import org.researchstack.foundation.components.utils.FormatHelper;
+import org.researchstack.foundation.core.models.result.StepResult;
 
 import java.util.ArrayList;
 import java.util.Date;

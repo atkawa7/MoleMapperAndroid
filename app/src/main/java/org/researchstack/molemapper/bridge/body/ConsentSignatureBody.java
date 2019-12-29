@@ -1,6 +1,7 @@
 package org.researchstack.molemapper.bridge.body;
 
-import org.researchstack.backbone.utils.FormatHelper;
+
+import org.researchstack.foundation.components.utils.FormatHelper;
 
 import java.util.Date;
 

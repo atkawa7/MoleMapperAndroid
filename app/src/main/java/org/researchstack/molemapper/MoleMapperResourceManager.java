@@ -1,7 +1,7 @@
 package org.researchstack.molemapper;
 import android.text.TextUtils;
 
-import org.researchstack.backbone.ResourcePathManager;
+import org.researchstack.foundation.components.singletons.ResourcePathManager;
 import org.researchstack.skin.ResourceManager;
 import org.researchstack.skin.model.ConsentSectionModel;
 import org.researchstack.skin.model.SectionModel;

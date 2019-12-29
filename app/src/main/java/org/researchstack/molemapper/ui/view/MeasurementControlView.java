@@ -1,11 +1,12 @@
 package org.researchstack.molemapper.ui.view;
 import android.content.Context;
 import android.os.Handler;
-import android.support.v7.widget.AppCompatImageButton;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
+
+import androidx.appcompat.widget.AppCompatImageButton;
 
 public class MeasurementControlView extends AppCompatImageButton
 {

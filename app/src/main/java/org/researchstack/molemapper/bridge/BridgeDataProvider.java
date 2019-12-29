@@ -3,27 +3,28 @@ package org.researchstack.molemapper.bridge;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.gson.Gson;
 
 import org.apache.commons.lang3.StringUtils;
-import org.researchstack.backbone.ResourcePathManager;
-import org.researchstack.backbone.StorageAccess;
-import org.researchstack.backbone.result.StepResult;
-import org.researchstack.backbone.result.TaskResult;
-import org.researchstack.backbone.storage.NotificationHelper;
-import org.researchstack.backbone.storage.database.AppDatabase;
-import org.researchstack.backbone.storage.database.TaskNotification;
-import org.researchstack.backbone.storage.file.FileAccess;
-import org.researchstack.backbone.storage.file.StorageAccessException;
-import org.researchstack.backbone.task.Task;
-import org.researchstack.backbone.ui.step.layout.ConsentSignatureStepLayout;
-import org.researchstack.backbone.utils.FormatHelper;
-import org.researchstack.backbone.utils.LogExt;
 import org.researchstack.backbone.utils.ObservableUtils;
+import org.researchstack.feature.consent.ui.layout.ConsentSignatureStepLayout;
+import org.researchstack.feature.storage.NotificationHelper;
+import org.researchstack.feature.storage.StorageAccess;
+import org.researchstack.feature.storage.database.AppDatabase;
+import org.researchstack.feature.storage.database.TaskNotification;
+import org.researchstack.feature.storage.file.FileAccess;
+import org.researchstack.feature.storage.file.StorageAccessException;
+import org.researchstack.foundation.components.singletons.ResourcePathManager;
+import org.researchstack.foundation.components.utils.FormatHelper;
+import org.researchstack.foundation.components.utils.LogExt;
+import org.researchstack.foundation.core.models.result.StepResult;
+import org.researchstack.foundation.core.models.result.TaskResult;
+import org.researchstack.foundation.core.models.task.Task;
 import org.researchstack.molemapper.BuildConfig;
 import org.researchstack.molemapper.bridge.body.ConsentSignatureBody;
 import org.researchstack.molemapper.bridge.body.EmailBody;
@@ -59,10 +60,10 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.GsonConverterFactory;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -89,7 +90,7 @@ public abstract class BridgeDataProvider extends DataProvider
     private   BridgeService   service;
     private   S3Service       s3service;
     protected UserSessionInfo userSessionInfo;
-    protected Gson    gson     = new Gson();
+    protected Gson gson     = new Gson();
     protected boolean signedIn = false;
 
     // these are used to get task/step guids without rereading the json files and iterating through
@@ -241,7 +242,7 @@ public abstract class BridgeDataProvider extends DataProvider
         return service.withdrawConsent(MOLE_MAPPER_SUBPOPULATION_GUID, new WithdrawalBody(reason))
                 .compose(ObservableUtils.applyDefault())
                 .doOnNext(response -> {
-                    if(response.isSuccess())
+                    if(response.isSuccessful())
                     {
                         // setting everything as if they had skipped consent
                         clearUserSession(context);
@@ -255,7 +256,7 @@ public abstract class BridgeDataProvider extends DataProvider
                         handleError(context, response.code());
                     }
                 })
-                .map(response -> new DataResponse(response.isSuccess(), response.message()));
+                .map(response -> new DataResponse(response.isSuccessful(), response.message()));
     }
 
     @Override
@@ -275,7 +276,7 @@ public abstract class BridgeDataProvider extends DataProvider
         saveUser(context, user);
 
         return service.signUp(body).map(response -> {
-            if(response.isSuccess())
+            if(response.isSuccessful())
             {
                 return new DataResponse(true, response.body().getMessage());
             }
@@ -339,7 +340,7 @@ public abstract class BridgeDataProvider extends DataProvider
                 uploadPendingFiles(context);
             }
         }).map(response -> {
-            boolean success = response.isSuccess() || response.code() == 412;
+            boolean success = response.isSuccessful() || response.code() == 412;
             return new DataResponse(success, response.message());
         });
     }
@@ -347,7 +348,7 @@ public abstract class BridgeDataProvider extends DataProvider
     @Override
     public Observable<DataResponse> signOut(Context context)
     {
-        return service.signOut().map(response -> new DataResponse(response.isSuccess(), null));
+        return service.signOut().map(response -> new DataResponse(response.isSuccessful(), null));
     }
 
     @Override
@@ -436,7 +437,7 @@ public abstract class BridgeDataProvider extends DataProvider
         service.dataSharing(new SharingOptionBody(scope))
                 .compose(ObservableUtils.applyDefault())
                 .doOnNext(response -> {
-                    if(response.isSuccess())
+                    if(response.isSuccessful())
                     {
                         userSessionInfo.setSharingScope(scope);
                         saveUserSession(context, userSessionInfo);
@@ -510,7 +511,7 @@ public abstract class BridgeDataProvider extends DataProvider
     public Observable<DataResponse> forgotPassword(Context context, String email)
     {
         return service.requestResetPassword(new EmailBody(getStudyId(), email)).map(response -> {
-            if(response.isSuccess())
+            if(response.isSuccessful())
             {
                 return new DataResponse(true, response.body().getMessage());
             }
@@ -807,7 +808,7 @@ public abstract class BridgeDataProvider extends DataProvider
     protected void uploadFile(Context context, UploadRequest request)
     {
         service.requestUploadSession(request).flatMap(response -> {
-            if(response.isSuccess())
+            if(response.isSuccessful())
             {
                 return uploadToS3(context, request, response.body());
             }
@@ -824,7 +825,7 @@ public abstract class BridgeDataProvider extends DataProvider
 
             return service.uploadComplete(id);
         }).subscribeOn(Schedulers.io()).subscribe(completeResponse -> {
-            if(completeResponse.isSuccess())
+            if(completeResponse.isSuccessful())
             {
                 LogExt.d(getClass(), "Notified bridge of s3 upload, need to confirm");
                 // update UploadRequest in DB with id for later confirmation
@@ -865,7 +866,7 @@ public abstract class BridgeDataProvider extends DataProvider
                 body,
                 request.contentMd5,
                 request.contentType).map(response -> {
-            if(response.isSuccess())
+            if(response.isSuccessful())
             {
                 return uploadSession.id;
             }
@@ -879,7 +880,7 @@ public abstract class BridgeDataProvider extends DataProvider
     private void confirmUpload(Context context, UploadRequest request)
     {
         service.uploadStatus(request.bridgeId).subscribeOn(Schedulers.io()).subscribe(response -> {
-            if(response.isSuccess())
+            if(response.isSuccessful())
             {
                 UploadValidationStatus uploadStatus = response.body();
 

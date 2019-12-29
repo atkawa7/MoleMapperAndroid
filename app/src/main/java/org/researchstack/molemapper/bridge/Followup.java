@@ -1,7 +1,7 @@
 package org.researchstack.molemapper.bridge;
-import org.researchstack.backbone.result.StepResult;
-import org.researchstack.backbone.result.TaskResult;
-import org.researchstack.backbone.utils.FormatHelper;
+import org.researchstack.foundation.components.utils.FormatHelper;
+import org.researchstack.foundation.core.models.result.StepResult;
+import org.researchstack.foundation.core.models.result.TaskResult;
 import org.researchstack.molemapper.task.FollowupTask;
 
 import java.util.Collection;

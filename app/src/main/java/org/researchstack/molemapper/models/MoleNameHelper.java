@@ -1,8 +1,9 @@
 package org.researchstack.molemapper.models;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.StringRes;
-import android.support.v7.preference.PreferenceManager;
+
+import androidx.annotation.StringRes;
+import androidx.preference.PreferenceManager;
 
 import org.researchstack.molemapper.R;
 import org.researchstack.molemapper.ui.fragment.MoleMapperSettingsFragment;

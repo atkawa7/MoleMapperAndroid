@@ -11,11 +11,12 @@ import android.graphics.Outline;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.AppCompatSpinner;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -31,10 +32,10 @@ import android.widget.TextView;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.jakewharton.rxbinding.view.RxView;
 
-import org.researchstack.backbone.StorageAccess;
 import org.researchstack.backbone.ui.PinCodeActivity;
-import org.researchstack.backbone.utils.LogExt;
 import org.researchstack.backbone.utils.ObservableUtils;
+import org.researchstack.feature.storage.StorageAccess;
+import org.researchstack.foundation.components.utils.LogExt;
 import org.researchstack.molemapper.models.Measurement;
 import org.researchstack.molemapper.ui.StatusBarUtils;
 import org.researchstack.molemapper.ui.view.MoleView;
@@ -62,7 +63,7 @@ public class MoleMeasurementActivity extends PinCodeActivity
 
     private volatile Measurement      measurement;
     private          MoleView         moleView;
-    private          AppCompatSpinner referenceSpinner;
+    private AppCompatSpinner referenceSpinner;
     private          String           moleLabel;
     private          String           tempMolePhoto;
 

@@ -2,22 +2,29 @@ package org.researchstack.molemapper.ui.fragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.preference.ListPreference;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceCategory;
-import android.support.v7.preference.PreferenceScreen;
+import android.text.TextUtils;
 
-import org.researchstack.backbone.StorageAccess;
-import org.researchstack.backbone.result.StepResult;
-import org.researchstack.backbone.storage.file.StorageAccessListener;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
+
+//import org.researchstack.backbone.StorageAccess;
+//import org.researchstack.backbone.result.StepResult;
+//import org.researchstack.backbone.storage.file.StorageAccessListener;
+//import org.researchstack.backbone.utils.ObservableUtils;
+//import org.researchstack.backbone.utils.TextUtils;
 import org.researchstack.backbone.utils.ObservableUtils;
-import org.researchstack.backbone.utils.TextUtils;
+import org.researchstack.feature.storage.StorageAccess;
+import org.researchstack.feature.storage.file.StorageAccessListener;
+import org.researchstack.foundation.core.models.result.StepResult;
 import org.researchstack.molemapper.R;
 import org.researchstack.molemapper.models.MoleNameHelper;
 import org.researchstack.molemapper.task.MoleMapperInitialTask;
 import org.researchstack.skin.ui.fragment.SettingsFragment;
 
 import rx.Observable;
+
 
 public class MoleMapperSettingsFragment extends SettingsFragment implements StorageAccessListener
 {

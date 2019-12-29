@@ -8,8 +8,6 @@ import org.researchstack.backbone.ui.PinCodeActivity;
 import org.researchstack.molemapper.ui.fragment.CameraFragment;
 import org.researchstack.molemapper.ui.fragment.PhotoCaptureCallbacks;
 
-;
-
 public class PhotoCaptureActivity extends PinCodeActivity implements PhotoCaptureCallbacks
 {
     public static final String TAG             = PhotoCaptureActivity.class.getSimpleName();

@@ -2,10 +2,10 @@ package org.researchstack.molemapper;
 
 import android.content.Context;
 
-import org.researchstack.backbone.ResourcePathManager;
-import org.researchstack.backbone.StorageAccess;
-import org.researchstack.backbone.result.TaskResult;
-import org.researchstack.backbone.utils.FormatHelper;
+import org.researchstack.feature.storage.StorageAccess;
+import org.researchstack.foundation.components.singletons.ResourcePathManager;
+import org.researchstack.foundation.components.utils.FormatHelper;
+import org.researchstack.foundation.core.models.result.TaskResult;
 import org.researchstack.molemapper.bridge.BridgeDataInput;
 import org.researchstack.molemapper.bridge.BridgeDataProvider;
 import org.researchstack.molemapper.bridge.Feedback;
@@ -74,14 +74,14 @@ public class MoleMapperDataProvider extends BridgeDataProvider
     {
         Database db = (Database) StorageAccess.getInstance().getAppDatabase();
         Mole mole = measurement.mole;
-        try
-        {
-            db.getDao(Mole.class).refresh(mole);
-        }
-        catch(SQLException e)
-        {
-            throw new RuntimeException("Error refreshing mole from DB");
-        }
+//        try
+//        {
+//           // db.getDao(Mole.class).refresh(mole);
+//        }
+//        catch(SQLException e)
+//        {
+//            throw new RuntimeException("Error refreshing mole from DB");
+//        }
 
         Zone zone = mole.zone;
         MeasurementData measurementData = new MeasurementData(zone, mole, measurement);

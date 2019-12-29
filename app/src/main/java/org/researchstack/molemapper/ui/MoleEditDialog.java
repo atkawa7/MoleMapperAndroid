@@ -1,14 +1,15 @@
 package org.researchstack.molemapper.ui;
 import android.app.Dialog;
 import android.content.Context;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.view.ContextThemeWrapper;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.view.ContextThemeWrapper;
 
 import org.researchstack.molemapper.R;
 import org.researchstack.molemapper.models.Mole;

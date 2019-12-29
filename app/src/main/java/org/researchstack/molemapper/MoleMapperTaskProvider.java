@@ -1,7 +1,7 @@
 package org.researchstack.molemapper;
 import android.content.Context;
 
-import org.researchstack.backbone.task.Task;
+import org.researchstack.foundation.core.models.task.Task;
 import org.researchstack.molemapper.task.MoleMapperInitialTask;
 import org.researchstack.skin.TaskProvider;
 import org.researchstack.skin.task.ConsentTask;

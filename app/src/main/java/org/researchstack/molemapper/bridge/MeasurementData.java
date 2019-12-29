@@ -1,5 +1,5 @@
 package org.researchstack.molemapper.bridge;
-import org.researchstack.backbone.utils.FormatHelper;
+import org.researchstack.foundation.components.utils.FormatHelper;
 import org.researchstack.molemapper.models.Measurement;
 import org.researchstack.molemapper.models.Mole;
 import org.researchstack.molemapper.models.Zone;

@@ -6,12 +6,13 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
+
 import android.text.Html;
 import android.util.SparseArray;
 import android.view.Menu;
@@ -20,11 +21,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.google.android.material.tabs.TabLayout;
 
-import org.researchstack.backbone.StorageAccess;
 import org.researchstack.backbone.ui.PinCodeActivity;
-import org.researchstack.backbone.ui.views.IconTabLayout;
 import org.researchstack.backbone.utils.ObservableUtils;
+import org.researchstack.feature.storage.StorageAccess;
+import org.researchstack.foundation.components.common.ui.views.IconTabLayout;
 import org.researchstack.molemapper.models.Measurement;
 import org.researchstack.molemapper.models.Mole;
 import org.researchstack.molemapper.ui.StatusBarUtils;
@@ -40,7 +42,7 @@ public class MoleHistoryActivity extends PinCodeActivity
     public static final String TAG      = MoleHistoryActivity.class.getSimpleName();
     public static final String KEY_MOLE = TAG + ".MOLE";
 
-    private TabLayout       tabLayout;
+    private TabLayout tabLayout;
     private MeasurementView measurementView;
     private View            progress;
 
@@ -67,7 +69,7 @@ public class MoleHistoryActivity extends PinCodeActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.rsb_black_40));
-        toolbar.setNavigationIcon(R.drawable.abc_ic_clear_mtrl_alpha);
+        toolbar.setNavigationIcon(R.drawable.abc_ic_clear_material);
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();

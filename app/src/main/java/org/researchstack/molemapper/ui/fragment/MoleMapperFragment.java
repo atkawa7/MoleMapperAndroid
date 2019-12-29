@@ -4,11 +4,13 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,16 +19,16 @@ import android.widget.TextView;
 
 import com.jakewharton.rxbinding.view.RxView;
 
-import org.researchstack.backbone.StorageAccess;
-import org.researchstack.backbone.result.StepResult;
-import org.researchstack.backbone.result.TaskResult;
-import org.researchstack.backbone.storage.NotificationHelper;
-import org.researchstack.backbone.storage.database.TaskNotification;
-import org.researchstack.backbone.storage.file.StorageAccessListener;
-import org.researchstack.backbone.task.Task;
 import org.researchstack.backbone.ui.ViewTaskActivity;
-import org.researchstack.backbone.utils.LogExt;
 import org.researchstack.backbone.utils.ObservableUtils;
+import org.researchstack.feature.storage.NotificationHelper;
+import org.researchstack.feature.storage.StorageAccess;
+import org.researchstack.feature.storage.database.TaskNotification;
+import org.researchstack.feature.storage.file.StorageAccessListener;
+import org.researchstack.foundation.components.utils.LogExt;
+import org.researchstack.foundation.core.models.result.StepResult;
+import org.researchstack.foundation.core.models.result.TaskResult;
+import org.researchstack.foundation.core.models.task.Task;
 import org.researchstack.molemapper.BodyMapActivity;
 import org.researchstack.molemapper.Database;
 import org.researchstack.molemapper.MoleMapperDataProvider;

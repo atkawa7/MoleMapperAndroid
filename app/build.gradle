@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'io.fabric'
+//apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 29
@@ -9,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "org.researchstack.molemapper"
-        minSdkVersion 16
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 9
         versionName "0.9.4"
@@ -29,11 +27,10 @@ android {
             
             // Define STUDY_ID, STUDY_NAME, STUDY_PEM can be defined here or in your local.properties 
             // file. These variables are needed for upload to properly work.
-          q
             // be located at the root directory of your assets folder.
-            buildConfigField 'String', 'STUDY_ID', RELEASE_STUDY_ID
-            buildConfigField 'String', 'STUDY_NAME', RELEASE_STUDY_NAME
-            buildConfigField 'String', 'STUDY_PEM', RELEASE_STUDY_PEM_FILE_NAME
+            buildConfigField 'String', 'STUDY_ID',"\"id-mole-mapper-study\""
+            buildConfigField 'String', 'STUDY_NAME', "\"MoleMapper Study\""
+            buildConfigField 'String', 'STUDY_PEM', "\"molemapper\""
         }
 
         debug {
@@ -48,9 +45,9 @@ android {
             // RELEASE_STUDY_NAME is of type String (e.g. "MoleMapper Study")
             // RELEASE_STUDY_PEM_FILE_NAME is of type String, (e.g. "molemapper"). The pem file should 
             // be located at the root directory of your assets folder.
-            buildConfigField 'String', 'STUDY_ID', DEBUG_STUDY_ID
-            buildConfigField 'String', 'STUDY_NAME', DEBUG_STUDY_NAME
-            buildConfigField 'String', 'STUDY_PEM', DEBUG_STUDY_PEM_FILE_NAME
+            buildConfigField 'String', 'STUDY_ID', "\"id-mole-mapper-study\""
+            buildConfigField 'String', 'STUDY_NAME', "\"MoleMapper Study\""
+            buildConfigField 'String', 'STUDY_PEM', "\"molemapper\""
         }
     }
 
@@ -70,22 +67,44 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.+'
-    compile 'com.android.support:cardview-v7:23.+'
-    compile 'com.android.support:support-v13:23.+'
-    compile 'com.android.support:design:23.+'
-    compile 'com.android.support:multidex:1.0.1'
-    compile 'org.researchstack:skin:1.0.0.rc3'
-    compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.4.1'
-    apt 'co.touchlab.squeaky:squeaky-processor:0.4.0.0'
-    compile 'com.madgag.spongycastle:core:1.54.0.0'
-    compile 'com.madgag.spongycastle:prov:1.54.0.0'
-    compile 'com.madgag.spongycastle:pkix:1.54.0.0'
-    compile 'pl.charmas.android:android-reactive-location:0.8@aar'
-    compile 'com.google.android.gms:play-services-location:8.4.0'
-    compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
-        transitive = true
-    }
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.preference:preference:1.0.0'
+    implementation 'io.reactivex:rxjava:1.2.5'
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v2.2.3'
+    implementation 'com.jakewharton.rxbinding:rxbinding:0.2.0'
+
+    implementation project(':skin')
+    implementation project(':storage')
+    implementation project(':ssimageview')
+    implementation project(':backbone')
+    implementation project(':foundation')
+    implementation project(':consent')
+    implementation project(':authentication')
+    implementation project(':chart')
+
+    implementation 'net.zetetic:android-database-sqlcipher:4.3.0'
+    implementation "androidx.sqlite:sqlite:2.0.1"
+
+    implementation group: 'co.touchlab.squeaky', name: 'squeaky-core', version: '0.4.0.0'
+    implementation group: 'co.touchlab.squeaky', name: 'squeaky-query', version: '0.4.0.0'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.0.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.0.0'
+
+    annotationProcessor 'co.touchlab.squeaky:squeaky-processor:0.4.0.0'
+    implementation 'com.madgag.spongycastle:core:1.54.0.0'
+    implementation 'com.madgag.spongycastle:prov:1.54.0.0'
+    implementation 'com.madgag.spongycastle:pkix:1.54.0.0'
+    implementation 'pl.charmas.android:android-reactive-location:0.8@aar'
+    implementation 'com.google.android.gms:play-services-location:8.4.0'
 }

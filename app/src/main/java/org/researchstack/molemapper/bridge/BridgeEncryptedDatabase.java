@@ -4,9 +4,10 @@ import android.text.format.DateUtils;
 
 import net.sqlcipher.database.SQLiteDatabase;
 
-import org.researchstack.backbone.storage.database.sqlite.SqlCipherDatabaseHelper;
-import org.researchstack.backbone.storage.database.sqlite.UpdatablePassphraseProvider;
-import org.researchstack.backbone.utils.LogExt;
+
+import org.researchstack.feature.storage.database.sqlite.SqlCipherDatabaseHelper;
+import org.researchstack.feature.storage.database.sqlite.UpdatablePassphraseProvider;
+import org.researchstack.foundation.components.utils.LogExt;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -20,7 +21,11 @@ import co.touchlab.squeaky.table.TableUtils;
  */
 public class BridgeEncryptedDatabase extends SqlCipherDatabaseHelper implements UploadQueue
 {
-    public BridgeEncryptedDatabase(Context context, String name, SQLiteDatabase.CursorFactory cursorFactory, int version, UpdatablePassphraseProvider passphraseProvider)
+    public BridgeEncryptedDatabase(
+            Context context, String name,
+            SQLiteDatabase.CursorFactory cursorFactory,
+            int version,
+            UpdatablePassphraseProvider passphraseProvider)
     {
         super(context, name, cursorFactory, version, passphraseProvider);
     }

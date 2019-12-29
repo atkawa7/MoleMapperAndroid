@@ -1,5 +1,6 @@
 package org.researchstack.molemapper.bridge;
-import org.researchstack.backbone.result.TaskResult;
+
+import org.researchstack.foundation.core.models.result.TaskResult;
 
 /**
  * Created by bradleymcdermott on 2/25/16.

@@ -4,7 +4,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 
-import org.researchstack.backbone.utils.LogExt;
+import org.researchstack.foundation.components.utils.LogExt;
 import org.researchstack.molemapper.R;
 
 import java.util.ArrayList;

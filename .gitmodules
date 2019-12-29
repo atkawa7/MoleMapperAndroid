@@ -1,0 +1,7 @@
+[submodule "researchstack"]
+	path = researchstack
+	url = https://github.com/atkawa7/ResearchStack.git
+	branch = develop-1.5
+[submodule "ssimageview"]
+	path = ssimageview
+	url = https://github.com/atkawa7/subsampling-scale-image-view.git

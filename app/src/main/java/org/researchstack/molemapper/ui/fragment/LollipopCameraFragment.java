@@ -51,9 +51,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.v13.app.FragmentCompat;
-import android.support.v4.content.ContextCompat;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Size;
@@ -68,8 +70,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.researchstack.backbone.StorageAccess;
-import org.researchstack.backbone.utils.LogExt;
+
+import org.researchstack.feature.storage.StorageAccess;
+import org.researchstack.foundation.components.utils.LogExt;
 import org.researchstack.molemapper.PhotoCaptureActivity;
 import org.researchstack.molemapper.R;
 import org.researchstack.molemapper.ui.StatusBarUtils;
@@ -87,7 +90,7 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 @TargetApi(21)
-public class LollipopCameraFragment extends CameraFragment implements FragmentCompat.OnRequestPermissionsResultCallback
+public class LollipopCameraFragment extends CameraFragment implements ActivityCompat.OnRequestPermissionsResultCallback
 {
     /**
      * Conversion from screen rotation to JPEG orientation.
@@ -692,13 +695,13 @@ public class LollipopCameraFragment extends CameraFragment implements FragmentCo
 
     private void requestCameraPermission()
     {
-        if(FragmentCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA))
+        if(shouldShowRequestPermissionRationale(Manifest.permission.CAMERA))
         {
             new ConfirmationDialog().show(getChildFragmentManager(), FRAGMENT_DIALOG);
         }
         else
         {
-            FragmentCompat.requestPermissions(this,
+            this.getActivity().requestPermissions(
                     new String[] {Manifest.permission.CAMERA},
                     REQUEST_CAMERA_PERMISSION);
         }
@@ -1365,8 +1368,7 @@ public class LollipopCameraFragment extends CameraFragment implements FragmentCo
             final Fragment parent = getParentFragment();
             return new AlertDialog.Builder(getActivity()).setMessage(R.string.request_permission)
                     .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                        FragmentCompat.requestPermissions(parent,
-                                new String[] {Manifest.permission.CAMERA},
+                        requestPermissions(new String[] {Manifest.permission.CAMERA},
                                 REQUEST_CAMERA_PERMISSION);
                     })
                     .setNegativeButton(android.R.string.cancel, (dialog, which) -> {
