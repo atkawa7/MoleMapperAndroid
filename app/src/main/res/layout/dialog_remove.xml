@@ -20,7 +20,7 @@
         android:background="?attr/selectableItemBackground"
         android:minHeight="48dp"
         android:orientation="horizontal">
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             style="@style/RemoveMoleIcon"
             app:srcCompat="@drawable/vic_delete_black_24dp"/>
         <TextView
@@ -34,7 +34,7 @@
         android:background="?attr/selectableItemBackground"
         android:minHeight="48dp"
         android:orientation="horizontal">
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             style="@style/RemoveMoleIcon"
             app:srcCompat="@drawable/vic_remove_circle_black_24dp"/>
         <TextView
@@ -49,7 +49,7 @@
         android:background="?attr/selectableItemBackground"
         android:minHeight="48dp"
         android:orientation="horizontal">
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             style="@style/RemoveMoleIcon"
             app:srcCompat="@drawable/vic_arrow_back_black_24dp"/>
         <TextView

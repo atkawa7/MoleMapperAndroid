@@ -18,7 +18,7 @@
         layout="@layout/rsb_layout_toolbar"
     />
 
-    <android.support.design.widget.TabLayout
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/mole_history_tabs"
         style="@style/Widget.MoleMapper.IconTabLayout"
         android:layout_width="match_parent"

@@ -9,14 +9,14 @@
     android:descendantFocusability="beforeDescendants"
     android:orientation="vertical">
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/dialog_edit_title"
         style="@style/ChartTitleText.Dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/edit_mole"/>
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/dialog_edit_remove"
         style="@style/Widget.AppCompat.ActionButton"
         android:layout_width="wrap_content"
@@ -28,7 +28,7 @@
         tools:src="@drawable/vic_delete_black_24dp"
     />
 
-    <android.support.v7.widget.AppCompatImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/dialog_edit_mole_icon"
         style="@style/Widget.AppCompat.ActionButton"
         android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
         tools:src="@drawable/vic_mole_20dp"
     />
 
-    <android.support.v7.widget.AppCompatEditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:minHeight="48dp"
         android:id="@+id/dialog_edit_edittext"
         android:layout_width="match_parent"
@@ -60,7 +60,7 @@
         android:background="@color/mm_med_gray"
     />
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         style="@style/Widget.AppCompat.Button.Borderless"
         android:id="@+id/dialog_mole_update"
         android:layout_width="wrap_content"
@@ -72,7 +72,7 @@
         android:layout_alignParentEnd="true"
     />
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         style="@style/Widget.AppCompat.Button.Borderless"
         android:id="@+id/dialog_mole_cancel"
         android:layout_width="wrap_content"

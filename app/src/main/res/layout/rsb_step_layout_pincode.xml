@@ -21,8 +21,7 @@
         android:paddingTop="@dimen/rsb_padding_small"
         android:text="@string/rsb_pincode_enter_summary"
         android:textColorLink="?attr/colorAccent" />
-
-    <android.support.v7.widget.AppCompatEditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/pincode"
         android:layout_width="match_parent"
         android:layout_height="@dimen/rsb_item_size_default"

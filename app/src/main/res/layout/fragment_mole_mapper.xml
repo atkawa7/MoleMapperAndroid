@@ -6,7 +6,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
 >
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.appcompat.widget.RecyclerView
         android:id="@+id/mole_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,7 +21,7 @@
         android:visibility="gone"
         tools:visibility="visible" />
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/empty_instruction"
         android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@+id/body_fab"
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/body_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
