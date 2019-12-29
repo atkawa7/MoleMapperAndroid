@@ -4,13 +4,13 @@ apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'io.fabric'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
 
     defaultConfig {
         applicationId "org.researchstack.molemapper"
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 29
         versionCode 9
         versionName "0.9.4"
         multiDexEnabled true
@@ -29,9 +29,7 @@ android {
             
             // Define STUDY_ID, STUDY_NAME, STUDY_PEM can be defined here or in your local.properties 
             // file. These variables are needed for upload to properly work.
-            // RELEASE_STUDY_ID is of type String (e.g. "id-mole-mapper-study")
-            // RELEASE_STUDY_NAME is of type String (e.g. "MoleMapper Study")
-            // RELEASE_STUDY_PEM_FILE_NAME is of type String, (e.g. "molemapper"). The pem file should 
+          q
             // be located at the root directory of your assets folder.
             buildConfigField 'String', 'STUDY_ID', RELEASE_STUDY_ID
             buildConfigField 'String', 'STUDY_NAME', RELEASE_STUDY_NAME
@@ -74,10 +72,10 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.2.1'
-    compile 'com.android.support:cardview-v7:23.2.1'
-    compile 'com.android.support:support-v13:23.2.1'
-    compile 'com.android.support:design:23.2.1'
+    compile 'com.android.support:appcompat-v7:23.+'
+    compile 'com.android.support:cardview-v7:23.+'
+    compile 'com.android.support:support-v13:23.+'
+    compile 'com.android.support:design:23.+'
     compile 'com.android.support:multidex:1.0.1'
     compile 'org.researchstack:skin:1.0.0.rc3'
     compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.4.1'
@@ -88,6 +86,6 @@ dependencies {
     compile 'pl.charmas.android:android-reactive-location:0.8@aar'
     compile 'com.google.android.gms:play-services-location:8.4.0'
     compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
-        transitive = true;
+        transitive = true
     }
 }
